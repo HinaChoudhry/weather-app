@@ -54,3 +54,12 @@ ul {
 .btn-margin {
   margin-right: 10px;
 }
+
+.weather-temperature .active {
+  color: #000;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}

@@ -94,6 +94,8 @@ formCity.addEventListener("submit", searchForm);
 
 function celsius(event) {
   event.preventDefault();
+  tempC.classList.add("active");
+  tempF.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -105,6 +107,8 @@ tempC.addEventListener("click", celsius);
 function fahrenhiet(event) {
   event.preventDefault();
   let fahrenhietTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempC.classList.remove("active");
+  tempF.classList.add("active");
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(fahrenhietTemperature);
 }
