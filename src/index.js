@@ -153,3 +153,25 @@ let celsiusTemperature = null;
 
 let searchCurrentCity = document.querySelector("#current-location");
 searchCurrentCity.addEventListener("click", locateCurrentCity);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  let forecastHTML = "";
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-sm-2">
+            <img src="http://openweathermap.org/img/wn/50d@2x.png"
+            width="50"
+            <br />
+            ${day}
+            <br />
+            20c
+          </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+displayForecast();
