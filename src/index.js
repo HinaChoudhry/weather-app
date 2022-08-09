@@ -165,22 +165,47 @@ let celsiusTemperature = null;
 let searchCurrentCity = document.querySelector("#current-location");
 searchCurrentCity.addEventListener("click", locateCurrentCity);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
   let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-sm-2">
-            <img src="http://openweathermap.org/img/wn/50d@2x.png"
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-sm-2">
+        <span class="inline-icon">
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
             width="50"
-            <br />
-            ${day}
-            <br />
-            20c
+            </span>
+            <span class="inline-icon">
+            ${formatDay(forecastDay.dt)}
+           
+            </span>
+            ${Math.round(forecastDay.temp.max)}
+          
+            ${Math.round(forecastDay.temp.min)}
           </div>`;
+    }
   });
 
   forecastElement.innerHTML = forecastHTML;

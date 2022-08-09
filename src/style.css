@@ -63,3 +63,7 @@ ul {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+
+.inline-icon {
+  display: block;
+}
