@@ -210,3 +210,5 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
+
+searchCity("London");
