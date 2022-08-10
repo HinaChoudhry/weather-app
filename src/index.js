@@ -116,11 +116,9 @@ let tempF = document.querySelector("#temp-f");
 tempF.addEventListener("click", fahrenhiet);
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -191,6 +189,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="col-sm-2">
+        <div class="text-center">
         <span class="inline-icon">
             <img src="http://openweathermap.org/img/wn/${
               forecastDay.weather[0].icon
@@ -202,8 +201,9 @@ function displayForecast(response) {
            
             </span>
             ${Math.round(forecastDay.temp.max)}
-          
-            ${Math.round(forecastDay.temp.min)}
+          <span class="min-temp">
+            ${Math.round(forecastDay.temp.min)}</span>
+            </div>
           </div>`;
     }
   });

@@ -67,3 +67,10 @@ ul {
 .inline-icon {
   display: block;
 }
+
+.min-temp {
+  color: rgba(0, 0, 0, 0.589);
+}
+text-center {
+  text-align: center;
+}
