@@ -94,26 +94,12 @@ formCity.addEventListener("submit", searchForm);
 
 function celsius(event) {
   event.preventDefault();
-  tempC.classList.add("active");
-  tempF.classList.remove("active");
+
   let temperatureElement = document.querySelector("#current-temp");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
 let currentTemp = document.querySelector("#current-temp");
-let tempC = document.querySelector("#temp-c");
-tempC.addEventListener("click", celsius);
-
-function fahrenhiet(event) {
-  event.preventDefault();
-  let fahrenhietTemperature = (celsiusTemperature * 9) / 5 + 32;
-  tempC.classList.remove("active");
-  tempF.classList.add("active");
-  let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(fahrenhietTemperature);
-}
-let tempF = document.querySelector("#temp-f");
-tempF.addEventListener("click", fahrenhiet);
 
 function getForecast(coordinates) {
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
